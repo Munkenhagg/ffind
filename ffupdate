@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DB_LOCATION="/usr/share/ffind/"
+DB_PATH="/usr/share/ffind/ffind.db"
+
+if [[ $UID != 0 ]]; then
+	printf "Please run ffupdate as root.\n"
+	exit
+fi
+
+mkdir $DB_LOCATION 2>/dev/null
+touch $DB_PATH
+chmod -R +rw $DB_LOCATION
+
+find / 2>/dev/null > $DB_PATH
