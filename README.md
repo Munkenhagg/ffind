@@ -9,6 +9,8 @@ For the Makefile you will have to make sure gcc is installed on your system.
 
 ```
 xz3k@gentoo ffind $ make ffind
+xz3k@gentoo ffind $ chmod +x ffind
+xz3k@gentoo ffind $ chmod +x ffupdate
 xz3k@gentoo ffind $ doas cp ffind /bin
 xz3k@gentoo ffind $ doas cp ffupdate /bin
 ```
