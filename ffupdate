@@ -8,7 +8,7 @@ if [[ $UID != 0 ]]; then
 	exit
 fi
 
-mkdir $DB_LOCATION 2>/dev/null
+mkdir -p $DB_LOCATION 2>/dev/null
 touch $DB_PATH
 chmod -R +rw $DB_LOCATION
 
