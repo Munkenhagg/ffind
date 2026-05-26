@@ -8,11 +8,9 @@ You can compile the ffind.c file manually or either run the Makefile provided in
 For the Makefile you will have to make sure gcc is installed on your system.
 
 ```
-xz3k@gentoo ffind $ make ffind
-xz3k@gentoo ffind $ chmod +x ffind
-xz3k@gentoo ffind $ chmod +x ffupdate
-xz3k@gentoo ffind $ doas cp ffind /bin
-xz3k@gentoo ffind $ doas cp ffupdate /bin
+xz3k@gentoo ffind $ make install
 ```
 
-**Note** : You may edit the CFLAFS or the CC in the Makefile.
+you can also make just the binary by doing `make` alone
+
+**Note** : You may edit the CFLAFS, CC or system BIN in the Makefile.
