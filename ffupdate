@@ -1,15 +1,16 @@
-#!/bin/bash
+#!/bin/env bash
 
-DB_LOCATION="/usr/share/ffind/"
-DB_PATH="/usr/share/ffind/ffind.db"
+DB_LOCATION="/usr/share/ffind"
+DB_PATH="$DB_LOCATION/ffind.db"
 
 if [[ $UID != 0 ]]; then
 	printf "Please run ffupdate as root.\n"
 	exit
 fi
 
-mkdir $DB_LOCATION 2>/dev/null
-touch $DB_PATH
-chmod -R +rw $DB_LOCATION
+mkdir -p "$DB_LOCATION" # -p makes redir to null unnecessary
+touch "$DB_PATH"
+chmod -R 666 "$DB_LOCATION"
+chmod 755 "$DB_LOCATION" # dirs need x bit to go through
 
 find / 2>/dev/null > $DB_PATH
