@@ -15,4 +15,4 @@ xz3k@gentoo ffind $ doas cp ffind /bin
 xz3k@gentoo ffind $ doas cp ffupdate /bin
 ```
 
-**Note** : You may edit the CFLAFS or the CC in the Makefile.
+**Note** : You may edit the CFLAFS or the CC in the Makefile or change the definitions in ffind.h
