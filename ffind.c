@@ -26,7 +26,6 @@ int main(int argc, char* argv[]) {
 		for (i = 1; i < argc; i++)
 			bytes += strlen(argv[i]);
 
-
 		pattern = (char*)malloc(bytes + argc);
 		if (pattern == NULL) {
 			fclose(db_fp);
