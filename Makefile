@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -march=native -O2 -Wall -Wextra
+CFLAGS = -march=native -O3 -Wall -Wextra -flto -mtune=native -pipe
 SRC := ffind.c
 OUT := ffind
 SYSBIN := /usr/bin
@@ -24,5 +24,7 @@ install: ffind
 clean:
 	@printf 'DEL  %-40s\n' "$(OUT)"
 	-@rm -f $(OUT)
+
+rebuild: clean $(OUT)
 
 .PHONY: clean install
