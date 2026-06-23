@@ -13,4 +13,4 @@ xz3k@gentoo ffind $ make install
 
 you can also make just the binary by doing `make` alone
 
-**Note** : You may edit the CFLAFS, CC or system BIN in the Makefile.
+**Note** : You may edit the CFLAGS, CC or SYSBIN in the Makefile to fit your system.
