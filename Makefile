@@ -1,22 +1,28 @@
 CC = gcc
 CFLAGS = -march=native -O2 -Wall -Wextra
-SRC = ffind.c
-OUT = ffind
-SYSBIN = /usr/bin
+SRC := ffind.c
+OUT := ffind
+SYSBIN := /usr/bin
+DB_LOC := /usr/share/ffind
+DB_F := $(DB_LOC)/ffind.db
+FFUPDATE := ffupdate
 
-all: install
+all: $(OUT)
 
-ffind:
-	@printf 'CC%b\n' "\t$(SRC)"
-	@$(CC) $(CFLAGS) $(SRC) -o $(OUT)
+$(OUT): $(SRC)
+	@printf 'CC  %-40s => %s\n' "$<" "$@"
+	@$(CC) $(CFLAGS) $< -o $@
 
 install: ffind
-	@mkdir -p "$(SYSBIN)"
-	@printf 'COPY%b\t=>%b\n' "\t$(OUT)" "\t$(SYSBIN)/$(OUT)"
+	@mkdir -p "$(SYSBIN)" "$(DB_LOC)"
+	@touch "$(DB_F)"
+	@printf 'COPY  %-40s => %s\n' "$(OUT)" "$(SYSBIN)/$(OUT)"
 	@install -m 755 $(OUT) /usr/bin/$(OUT)
+	@printf 'COPY  %-40s => %s\n' "$(FFUPDATE)" "$(SYSBIN)/$(FFUPDATE)"
+	@install -m 755 $(FFUPDATE) /usr/bin/$(FFUPDATE)
 
 clean:
-	@printf 'DEL%b\n' "\t$(OUT)"
+	@printf 'DEL  %-40s\n' "$(OUT)"
 	-@rm -f $(OUT)
 
-.PHONY: clean ffind install
+.PHONY: clean install
