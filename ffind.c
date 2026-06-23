@@ -5,7 +5,7 @@
 #include <sys/stat.h>
 #include <stddef.h>
 
-int main(int argc, char* argv[]) {
+int main(int argc, char **argv) {
 	if (argc < 2) {
 		printf("%s: No pattern specified.\n", argv[0]);
 		return 0;
