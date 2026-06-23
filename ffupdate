@@ -7,7 +7,7 @@ DB_PATH="$DB_LOCATION/ffind.db"
 
 if [ ! "$(id -u)" = 0 ]; then
 	printf "Please run ffupdate as root.\n"
-	exit
+	return 1
 fi
 
 mkdir -p "$DB_LOCATION"
